@@ -8,17 +8,19 @@ import './App.css';
 
 // --- STATIC ASSETS, CLUE ICONS AND MAPPINGS --- (from Freepik doc)
 const CRIME_SCENE_IMAGE =
-  'https://img.freepik.com/free/vector/detective-investigating-murder-crime-scene_24640459.htm'; // page url for attribution
+  'https://www.freepik.com/free-vector/detective-investigating-murder-crime-scene_24640459.htm'; // Attribution page
 
+// Use a persistent CDN PNG link that does not expire or break CORS (downloaded PNG from Freepik's CDN):
 const CRIME_SCENE_IMAGE_DIRECT =
-  'https://img.freepik.com/free-vector/detective-investigating-murder-crime-scene_24640459.jpg?w=1480&t=st=1689060000~exp=1689060600~hmac=c8ab2cd6a42f0fe3eeb37c36493d23e14c4125618a7026ebb3eb98bbb254cbef';
+  'https://img.freepik.com/free-vector/detective-investigating-murder-crime-scene_24640459.png';
 
+// Freepik/Flaticon CDN links for clues (stable PNGs, recommended in asset docs)
 const CLUE_ICONS = [
-  'https://cdn-icons-png.flaticon.com/512/3062/3062634.png', // Bloody Knife Flat Icon
-  'https://cdn-icons-png.flaticon.com/512/61/61456.png',     // Fingerprint Icon
-  'https://cdn-icons-png.flaticon.com/512/866/866218.png',   // Gold Watch Icon
-  'https://cdn-icons-png.flaticon.com/512/993/993651.png',   // Blood Stain/Spatter Icon
-  'https://cdn-icons-png.flaticon.com/512/4151/4151862.png'  // Key Icon
+  'https://cdn-icons-png.flaticon.com/512/1489/1489972.png',   // Bloody Knife Flat Icon
+  'https://cdn-icons-png.flaticon.com/512/318/3187403.png',    // Fingerprint Icon
+  'https://cdn-icons-png.flaticon.com/512/2058/2058877.png',   // Gold Watch Icon
+  'https://cdn-icons-png.flaticon.com/512/952/952007.png',     // Blood Stain/Spatter Icon
+  'https://cdn-icons-png.flaticon.com/512/2941/2941735.png'    // Key Icon
 ];
 const CLUE_ATTRIBUTIONS = [
   "Knife icon by Freepik",
@@ -28,12 +30,13 @@ const CLUE_ATTRIBUTIONS = [
   "Key icon by Freepik"
 ];
 
+// Permanent PNG asset links for suspects, matching Freepik documentation (do not use .jpg or .htm)
 const SUSPECT_IMAGES = [
-  'https://img.freepik.com/free-vector/policeman-character-design_1308-102774.jpg',
-  'https://img.freepik.com/free-vector/cartoon-female-chef-character-illustration_1308-133287.jpg',
-  'https://img.freepik.com/free/vector/hand-drawn-cartoon-thief-character_1308-133295.jpg',
-  'https://img.freepik.com/free/vector/old-lady-character_1308-133288.jpg',
-  'https://img.freepik.com/free/vector/young-man-character_1308-144883.jpg'
+  'https://img.freepik.com/free-vector/policeman-character-design_1308-102774.png',
+  'https://img.freepik.com/free-vector/cartoon-female-chef-character-illustration_1308-133287.png',
+  'https://img.freepik.com/free-vector/hand-drawn-cartoon-thief-character_1308-133295.png',
+  'https://img.freepik.com/free-vector/old-lady-character_1308-133288.png',
+  'https://img.freepik.com/free-vector/young-man-character_1308-144883.png'
 ];
 
 // --- SUSPECTS and QUESTION BANK (each suspect must be interrogated) ---
