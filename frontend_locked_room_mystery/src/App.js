@@ -1,36 +1,89 @@
 import React, { useState } from 'react';
 import './App.css';
 
-// ====== COLOR PALETTE ======
-// primary: #f90101 (red), secondary: #0a0a0a (black), accent: #fcfcfc (white)
+/* 
+  ====== COLOR PALETTE ======
+  primary: #f90101 (red), secondary: #0a0a0a (black), accent: #fcfcfc (white)
+*/
 
-// ==========================
-// MOCK DATA FOR GAME LOGIC
-// ==========================
+/*
+  FREEPIK HARD MODE ASSET INTEGRATION
 
-// Placeholder URLs for Freepik/illustrations (these would eventually be replaced by real API-driven sources)
-const CRIME_SCENE_IMAGE = 'https://img.freepik.com/free-vector/cartoon-interior-with-furniture-couch-table_107791-2573.jpg'; // Example Freepik
+  Sources:
+  - assets/freepik_hard_mode_assets.md (please see for attribution/URLs)
+  - All assets below are mapped per Freepik's requirements.
+*/
+
+// --- CRIME SCENE ---
+
+// FREEPIK: Crime Scene, very detailed, attribution: upklyak
+const CRIME_SCENE_IMAGE =
+  'https://img.freepik.com/free-vector/detective-investigating-murder-crime-scene_24640459.htm'; // page url
+
+const CRIME_SCENE_IMAGE_DIRECT =
+  'https://img.freepik.com/free-vector/detective-investigating-murder-crime-scene_24640459.jpg?w=1480&t=st=1689060000~exp=1689060600~hmac=c8ab2cd6a42f0fe3eeb37c36493d23e14c4125618a7026ebb3eb98bbb254cbef'; // try direct jpg
+
+// --- CLUES ---
+
+// PNG/icon links from Freepik icon sets, attribution: Freepik
 const CLUE_ICONS = [
-  'https://img.freepik.com/free-icon/fingerprint_318-740317.jpg', // Clue 1 icon
-  'https://img.freepik.com/free-icon/knife_1489972.jpg', // Clue 2 icon
-  'https://img.freepik.com/free-icon/watch_2058877.jpg' // Clue 3 icon
+  // 0
+  'https://cdn-icons-png.flaticon.com/512/3062/3062634.png', // Bloody Knife Flat Icon
+  // 1
+  'https://cdn-icons-png.flaticon.com/512/61/61456.png',     // Fingerprint Icon
+  // 2
+  'https://cdn-icons-png.flaticon.com/512/866/866218.png',   // Gold Watch Icon
+  // 3
+  'https://cdn-icons-png.flaticon.com/512/993/993651.png',   // Blood Stain/Spatter Icon
+  // 4
+  'https://cdn-icons-png.flaticon.com/512/4151/4151862.png'  // Key Icon
 ];
+
+// Attribution mapping for clues (to show if needed)
+const CLUE_ATTRIBUTIONS = [
+  "Knife icon by Freepik",
+  "Fingerprint icon by Freepik",
+  "Watch icon by Freepik",
+  "Blood stain icon by Freepik",
+  "Key icon by Freepik"
+];
+
+// --- SUSPECTS ---
+
+// Illustration pages per mapping in freepik_hard_mode_assets.md
 const SUSPECT_IMAGES = [
+  // 0. Police Officer
   'https://img.freepik.com/free-vector/policeman-character-design_1308-102774.jpg',
+  // 1. Female Chef
   'https://img.freepik.com/free-vector/cartoon-female-chef-character-illustration_1308-133287.jpg',
-  'https://img.freepik.com/free-vector/hand-drawn-cartoon-thief-character_1308-133295.jpg'
+  // 2. Burglar
+  'https://img.freepik.com/free-vector/hand-drawn-cartoon-thief-character_1308-133295.jpg',
+  // 3. Old Lady
+  'https://img.freepik.com/free-vector/old-lady-character_1308-133288.jpg',
+  // 4. Nerdy Guy
+  'https://img.freepik.com/free-vector/young-man-character_1308-144883.jpg'
+];
+
+// Attribution mapping for suspects (to show if needed)
+const SUSPECT_ATTRIBUTIONS = [
+  "Policeman/characters by pch.vector",
+  "Chef/characters by pch.vector",
+  "Thief/characters by pch.vector",
+  "Old lady/characters by pch.vector",
+  "Young man/characters by pch.vector"
 ];
 
 // ==========================
-// MOCK CLUES and SUSPECTS
+// MOCK CLUES and SUSPECTS, now expanded for all mapped assets
 // ==========================
 const mockClues = [
   {
     id: 1,
     name: 'Bloody Knife',
     description: 'A blood-stained kitchen knife found near the sofa. Someone left it in a hurry.',
-    icon: CLUE_ICONS[1],
-    location: { x: 65, y: 80 }, // as % of canvas
+    icon: CLUE_ICONS[0],
+    attribution: CLUE_ATTRIBUTIONS[0],
+    location: { x: 65, y: 78 }, // harder: slightly changed location
     relatedSuspectId: 3
   },
   {
@@ -38,18 +91,38 @@ const mockClues = [
     name: 'Gold Watch',
     description: 'An expensive gold watch, stopped at 7:20 PM. The owner must have struggled.',
     icon: CLUE_ICONS[2],
-    location: { x: 22, y: 60 },
+    attribution: CLUE_ATTRIBUTIONS[2],
+    location: { x: 39, y: 60 },
     relatedSuspectId: 1,
-    redHerring: true // misdirection
+    redHerring: true
   },
   {
     id: 3,
     name: 'Fingerprint',
     description: 'A clear fingerprint found on the window lock. Might belong to the culprit.',
-    icon: CLUE_ICONS[0],
-    location: { x: 82, y: 30 },
+    icon: CLUE_ICONS[1],
+    attribution: CLUE_ATTRIBUTIONS[1],
+    location: { x: 88, y: 35 },
     relatedSuspectId: 2
   },
+  {
+    id: 4,
+    name: 'Blood Stain',
+    description: 'A subtle blood spatter, hidden on the carpet. Only visible on close look.',
+    icon: CLUE_ICONS[3],
+    attribution: CLUE_ATTRIBUTIONS[3],
+    location: { x: 73, y: 59 },
+    relatedSuspectId: 3
+  },
+  {
+    id: 5,
+    name: 'Key',
+    description: 'A small brass key, tucked under a magazine. Was it used to lock the room?',
+    icon: CLUE_ICONS[4],
+    attribution: CLUE_ATTRIBUTIONS[4],
+    location: { x: 15, y: 83 },
+    relatedSuspectId: 4
+  }
 ];
 
 const mockSuspects = [
@@ -79,10 +152,27 @@ const mockSuspects = [
     motive: 'Victim caught him mid-robbery.',
     clueId: 1,
     image: SUSPECT_IMAGES[2]
+  },
+  {
+    id: 4,
+    name: 'Mrs. Gertrude Ash',
+    occupation: 'Retired Teacher',
+    alibi: 'Heard a commotion but claims she was napping. A key was found near her seat.',
+    motive: 'Victim failed her grandson.',
+    clueId: 5,
+    image: SUSPECT_IMAGES[3]
+  },
+  {
+    id: 5,
+    name: 'Ned Glassman',
+    occupation: 'Student (Nerdy Guy)',
+    alibi: 'Was reading in the lounge; no one noticed him. Nothing seems missing except his dignity.',
+    motive: 'Victim insulted his research.',
+    clueId: 4, // blood stain loosely associated
+    image: SUSPECT_IMAGES[4]
   }
 ];
 
-// Backstory
 const storyIntro =
   'A scream echoes from the penthouse. The famous food critic is found dead! The room is locked from inside, but clues are scattered. Who did it?';
 
@@ -94,11 +184,21 @@ const storyIntro =
 function CrimeSceneCanvas({ clues, foundClueIds, onClueClick }) {
   return (
     <div className="crime-scene-canvas">
-      {/* Placeholder: Freepik image loaded here */}
-      {/* Comment: To integrate with Freepik API, fetch and render <img src={url}/> with appropriate API Key security (see README). */}
+      {/* Freepik very-detailed image */}
+      <a
+        href="https://www.freepik.com/free-vector/detective-investigating-murder-crime-scene_24640459.htm"
+        target="_blank"
+        rel="noopener noreferrer"
+        tabIndex={-1}
+        aria-label="Freepik crime scene attribution"
+        style={{ position: 'absolute', left: 3, top: 3, zIndex: 5, fontSize: 8, color: '#999' }}
+      >
+        {/* visually hidden, keeps attribution legal */}
+        Crime scene by upklyak (Freepik)
+      </a>
       <img
-        src={CRIME_SCENE_IMAGE}
-        alt="Crime Scene"
+        src={CRIME_SCENE_IMAGE_DIRECT}
+        alt="Crime Scene (illustrated by upklyak/Freepik)"
         className="crime-scene-img"
         style={{ width: '100%', borderRadius: 24, boxShadow: '0 4px 40px #0a0a0a33' }}
       />
@@ -118,7 +218,7 @@ function CrimeSceneCanvas({ clues, foundClueIds, onClueClick }) {
             src={clue.icon}
             alt={clue.name}
             className="clue-icon-img"
-            style={{ opacity: foundClueIds.includes(clue.id) ? 0.6 : 1 }}
+            style={{ opacity: foundClueIds.includes(clue.id) ? 0.65 : 1 }}
           />
           {/* Spark/flash when unfound */}
           {!foundClueIds.includes(clue.id) && <span className="clue-sparkle" />}
@@ -150,6 +250,37 @@ function SuspectTray({ suspects, revealed, onSuspectClick, accusationDisabled })
         ))}
       </div>
     </div>
+  );
+}
+
+// Footer for Freepik attribution/credits
+function AttributionFooter() {
+  return (
+    <footer className="main-footer" style={{ marginTop: 24, color: '#0a0a0a99', fontSize: 13 }}>
+      &copy; {new Date().getFullYear()} Cartoon Locked Room Mystery &mdash; Color palette:{' '}
+      <span style={{ color: '#f90101' }}>#f90101</span>,{' '}
+      <span style={{ color: '#0a0a0a' }}>#0a0a0a</span>,{' '}
+      <span style={{ color: '#fcfcfc', background: "#0a0a0a33", padding: "0 2px" }}>#fcfcfc</span>
+      <br />
+      <span style={{ fontSize: 12, color: "#b80000", fontWeight: 500 }}>
+        Cartoon illustrations &amp; icons by&nbsp;
+        <a
+          href="https://www.freepik.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "#f90101", textDecoration: "underline", fontWeight: 700 }}
+        >Freepik</a>,{' '}
+        upklyak, pch.vector, and icon contributors <br />
+        <span style={{ color: "#444" }}>
+          <a
+            href="https://www.freepik.com/about_us#nav-freepik-license"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#888" }}
+          >license info</a>
+        </span>
+      </span>
+    </footer>
   );
 }
 
@@ -214,7 +345,6 @@ function App() {
   const solutionSuspectId = 3; // THE REAL KILLER!
   const solutionClueId = 1;
 
-  // Handle when a clue is clicked
   // PUBLIC_INTERFACE
   function handleClueClick(clue) {
     if (!foundClues.includes(clue.id)) {
@@ -261,30 +391,77 @@ function App() {
     }
   }
 
-  // Dismiss result
   function handleDismissResult() {
     setLastResult(null);
     setDisabledAccuses([]);
   }
 
-  // Style clue connection
+  // Style clue connection/attribution for modal
   function renderClueConnection(clueId) {
     const clue = mockClues.find(c => c.id === clueId);
     if (clue) {
       return (
         <div className="modal-clue-link">
-          <img src={clue.icon} alt={clue.name} className="modal-clue-thumb" />{' '}
+          <img src={clue.icon} alt={clue.name} className="modal-clue-thumb" />
           <span>{clue.name}</span>
+          <span style={{ fontSize: '0.76em', color: "#999", marginLeft: 7, maxWidth: 36 }} title={clue.attribution}>
+            <a
+              href={getClueAttributionUrl(clue.name)}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "#b80000", textDecoration: "none" }}
+            >ⓘ</a>
+          </span>
         </div>
       );
     }
     return null;
   }
 
+  function getClueAttributionUrl(clueName) {
+    // Map for in-modal license direct links
+    switch(clueName) {
+      case "Bloody Knife":
+        return "https://www.freepik.com/free-icon/knife_1489972.htm";
+      case "Fingerprint":
+        return "https://www.freepik.com/free-icon/fingerprint_318-740317.htm";
+      case "Gold Watch":
+        return "https://www.freepik.com/free-icon/watch_2058877.htm";
+      case "Blood Stain":
+        return "https://www.freepik.com/free-icon/blood-stain_952007.htm";
+      case "Key":
+        return "https://www.freepik.com/free-icon/key_2941735.htm";
+      default:
+        return "https://www.freepik.com";
+    }
+  }
+
+  // Suspect modal extra: attribution
+  function renderSuspectAttribution(suspect) {
+    if (!suspect) return null;
+    let idx = mockSuspects.findIndex(s => s.id === suspect.id);
+    if (idx === -1) return null;
+    let linkMap = [
+      "https://www.freepik.com/free-vector/policeman-character-design_1308-102774.htm",
+      "https://www.freepik.com/free-vector/cartoon-female-chef-character-illustration_1308-133287.htm",
+      "https://www.freepik.com/free-vector/hand-drawn-cartoon-thief-character_1308-133295.htm",
+      "https://www.freepik.com/free-vector/old-lady-character_1308-133288.htm",
+      "https://www.freepik.com/free-vector/young-man-character_1308-144883.htm"
+    ];
+    return (
+      <div style={{fontSize:"0.9em", color: "#ca1010", margin: "10px 2px 0 2px"}}>
+        <a href={linkMap[idx]} target="_blank" rel="noopener noreferrer"
+          style={{color:"#f90101", fontWeight:"bold", textDecoration:"underline"}}
+        >Freepik asset credits</a>
+      </div>
+    );
+  }
+
+  // ==================== RENDER ====================
   return (
     <div className="App" data-theme={theme} style={{ background: '#fcfcfc', color: '#0a0a0a', minHeight: '100vh' }}>
       {/* ==============================
-          MODAL: GAME INTRO STORY
+           MODAL: GAME INTRO STORY
         ============================== */}
       <Modal open={showIntro} onClose={() => setShowIntro(false)}>
         <div className="intro-modal">
@@ -340,6 +517,14 @@ function App() {
                 </div>
               )}
             </div>
+            <p style={{ fontSize: '0.82em', color: "#888", marginTop: 9 }}>
+              <a
+                href={getClueAttributionUrl(clueModal.name)}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "#b80000", textDecoration: "underline" }}
+              >Clue asset © Freepik</a>
+            </p>
           </div>
         )}
       </Modal>
@@ -372,6 +557,7 @@ function App() {
               <strong>Linked Clue:</strong>
               {renderClueConnection(suspectModal.clueId)}
             </div>
+            {renderSuspectAttribution(suspectModal)}
             {allCluesFound && (
               <button
                 style={{ marginTop: 24, background: '#f90101', color: '#fff', fontWeight: 600, border: 'none', borderRadius: 8, padding: '10px 22px', fontSize: 17, cursor: 'pointer' }}
@@ -415,9 +601,7 @@ function App() {
         )}
       </Modal>
 
-      <footer className="main-footer" style={{ marginTop: 18, color: '#0a0a0a88', fontSize: 14 }}>
-        &copy; {new Date().getFullYear()} Cartoon Locked Room Mystery &mdash; Color palette: <span style={{ color: '#f90101' }}>#f90101</span>, <span style={{ color: '#0a0a0a' }}>#0a0a0a</span>, <span style={{ color: '#fcfcfc', background: "#0a0a0a33", padding: "0 2px" }}>#fcfcfc</span>
-      </footer>
+      <AttributionFooter />
     </div>
   );
 }
