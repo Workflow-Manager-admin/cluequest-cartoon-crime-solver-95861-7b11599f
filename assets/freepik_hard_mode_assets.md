@@ -1,78 +1,102 @@
 # Freepik Cartoon Crime Mystery Game Assets (Hard Mode) — Integration Guide
 
 _**Theme:** Flat 2D, bold colors, clean lines, transparent backgrounds.  
-**License:** Free for commercial use with attribution ([check Freepik license per image]).  
+**License:** Free for commercial use with attribution ([see Freepik license per image](https://www.freepik.com/about_us#nav-freepik-license)).  
 **Note:** Use PNGs with transparency for best integration in game UI._
 
 ---
 
 ## 1. Crime Scene Illustrations (Challenging, Highly Illustrated)
-**Description:** Busy, detailed cartoon interiors or locked rooms.  
+**Description:** Busy, multi-layered cartoon interiors/locked rooms with visual clutter for hard mode.  
 **Integration:** Assign to `CRIME_SCENE_IMAGE` in App.js.
 
-- **[Cartoon Interior Crime Scene (Highly Detailed)](https://www.freepik.com/free-vector/detective-investigating-murder-crime-scene_24640459.htm)**
+- **[Cartoon Detective Investigating Crime Scene (Very Detailed)](https://www.freepik.com/free-vector/detective-investigating-murder-crime-scene_24640459.htm)**
   - URL: https://www.freepik.com/free-vector/detective-investigating-murder-crime-scene_24640459.htm
-  - [Direct PNG Download (check vector exports for transparent BG)]
-  - Author: upklyak
-  
-- **[Modern Cartoon Living Room w/ Details](https://www.freepik.com/free-vector/modern-interior-living-room_24688296.htm)**
+  - Download (PNG, vector, attribution: upklyak)
+  - Features: Multiple rooms, police tape, objects to hide clues.
+
+- **[Modern Cartoon Living Room Crime Scene (Alternate)](https://www.freepik.com/free-vector/modern-interior-living-room_24688296.htm)**
   - URL: https://www.freepik.com/free-vector/modern-interior-living-room_24688296.htm
-  - For “locked room” context: busy, lots of places to hide clues.
-  - Author: upklyak
+  - Downloadable vector/PNG (attribution: upklyak)
+  - Highly detailed, good for hidden clue overlays.
 
 ---
 
 ## 2. Hidden Clue Icons/Illustrations (Complex, Detailed)
-**Description:** Detectable but challenging to spot “clue” items; flat style.  
+**Description:** Challenging-to-spot clue icons; cartoon/flat style; PNG preferred.  
 **Integration:**  
-- Use as items in `CLUE_ICONS` and for clue overlays.  
-- Prefer PNGs with transparent backgrounds.
+- Use in `CLUE_ICONS` array and for overlays.
+- Recommend adapting asset sizes for overlay visibility.
 
-- **[Bloody Knife Cartoon Icon - PNG, Flat Style](https://www.freepik.com/free-icon/knife_1489972.htm)**
+- **[Bloody Knife Cartoon Icon - Flat PNG](https://www.freepik.com/free-icon/knife_1489972.htm)**
   - URL: https://www.freepik.com/free-icon/knife_1489972.htm
-  - License: Free (requires attribution)
-  - Author: Freepik
+  - Attribution: Freepik
+  - PNG/icon, classic murder weapon; place in scene (edge of sofa, under table, etc.)
 
-- **[Cartoon Fingerprint Icon Flat 2D](https://www.freepik.com/free-icon/fingerprint_318-740317.htm)**
+- **[Cartoon Fingerprint Icon (Flat)](https://www.freepik.com/free-icon/fingerprint_318-740317.htm)**
   - URL: https://www.freepik.com/free-icon/fingerprint_318-740317.htm
-  - Author: Freepik
+  - Attribution: Freepik
+  - Use for fingerprint found on window/object.
 
-- **[Cartoon Wristwatch Icon (Gold Watch, clue)](https://www.freepik.com/free-icon/watch_2058877.htm)**
+- **[Gold Watch — Cartoon Flat Style](https://www.freepik.com/free-icon/watch_2058877.htm)**
   - URL: https://www.freepik.com/free-icon/watch_2058877.htm
-  - Author: Freepik
+  - Attribution: Freepik
+  - As “dropped clue”, can overlay anywhere in room.
+
+- **[Blood Stain/Spatter Flat Icon](https://www.freepik.com/free-icon/blood-stain_952007.htm)**
+  - URL: https://www.freepik.com/free-icon/blood-stain_952007.htm
+  - Attribution: Freepik
+  - For small, subtle overlays (hard to spot).
+
+- **[Cartoon Key Icon (Flat)](https://www.freepik.com/free-icon/key_2941735.htm)**
+  - URL: https://www.freepik.com/free-icon/key_2941735.htm
+  - Attribution: Freepik
+  - Hidden “key” clue, classic for locked-room scenario.
 
 ---
 
-## 3. Suspect Illustrations (Diverse, Highly Illustrated)
-**Description:** Diverse cartoon characters, suspects with distinct features and bold colors.  
+## 3. Suspect Illustrations (Highly Detailed, Distinctive Cartoons)
+**Description:** Visually diverse suspects, varied genders/roles, bold costumes, cartoon style.  
 **Integration:**  
-- Use for `SUSPECT_IMAGES` array; map to suspect objects.
+- Use in `SUSPECT_IMAGES` array, mapped by index or ID in mockSuspects.
 
-- **[Cartoon Police Officer Suspect, Flat PNG](https://www.freepik.com/free-vector/policeman-character-design_1308-102774.htm)**
+- **[Cartoon Police Officer (Male, Flat Style)](https://www.freepik.com/free-vector/policeman-character-design_1308-102774.htm)**
   - URL: https://www.freepik.com/free-vector/policeman-character-design_1308-102774.htm
-  - Author: pch.vector
+  - Attribution: pch.vector
 
-- **[Cartoon Female Chef Suspect, Flat PNG](https://www.freepik.com/free-vector/cartoon-female-chef-character-illustration_1308-133287.htm)**
+- **[Cartoon Female Chef Character](https://www.freepik.com/free-vector/cartoon-female-chef-character-illustration_1308-133287.htm)**
   - URL: https://www.freepik.com/free-vector/cartoon-female-chef-character-illustration_1308-133287.htm
-  - Author: pch.vector
+  - Attribution: pch.vector
 
-- **[Cartoon Male Thief/Burglar Suspect, Flat PNG](https://www.freepik.com/free-vector/hand-drawn-cartoon-thief-character_1308-133295.htm)**
+- **[Male Thief/Burglar Suspect (Cartoon)](https://www.freepik.com/free-vector/hand-drawn-cartoon-thief-character_1308-133295.htm)**
   - URL: https://www.freepik.com/free-vector/hand-drawn-cartoon-thief-character_1308-133295.htm
-  - Author: pch.vector
+  - Attribution: pch.vector
+
+- **[Cartoon Old Lady Suspect (Flat, Distinctive)](https://www.freepik.com/free-vector/old-lady-character_1308-133288.htm)**
+  - URL: https://www.freepik.com/free-vector/old-lady-character_1308-133288.htm
+  - Attribution: pch.vector
+
+- **[Cartoon Young Man with Glasses (Nerdy Look)](https://www.freepik.com/free-vector/young-man-character_1308-144883.htm)**
+  - URL: https://www.freepik.com/free-vector/young-man-character_1308-144883.htm
+  - Attribution: pch.vector
 
 ---
 
 ## 4. Integration Mapping (For Developers)
 
-| Game Element     | Freepik Asset URL                                                                           | Suggested JS Constant                          |
-|------------------|--------------------------------------------------------------------------------------------|------------------------------------------------|
-| Crime Scene      | https://www.freepik.com/free-vector/detective-investigating-murder-crime-scene_24640459.htm | CRIME_SCENE_IMAGE                              |
-| Bloody Knife     | https://www.freepik.com/free-icon/knife_1489972.htm                                         | CLUE_ICONS[1]                                  |
-| Fingerprint      | https://www.freepik.com/free-icon/fingerprint_318-740317.htm                                | CLUE_ICONS[0]                                  |
-| Gold Watch       | https://www.freepik.com/free-icon/watch_2058877.htm                                         | CLUE_ICONS[2]                                  |
-| Suspect: Police  | https://www.freepik.com/free-vector/policeman-character-design_1308-102774.htm              | SUSPECT_IMAGES[0]                              |
-| Suspect: Chef    | https://www.freepik.com/free-vector/cartoon-female-chef-character-illustration_1308-133287.htm | SUSPECT_IMAGES[1]                           |
-| Suspect: Burglar | https://www.freepik.com/free-vector/hand-drawn-cartoon-thief-character_1308-133295.htm      | SUSPECT_IMAGES[2]                              |
+| Game Element      | Freepik Asset URL                                                                              | Suggested JS Constant                |
+|-------------------|------------------------------------------------------------------------------------------------|--------------------------------------|
+| Crime Scene       | https://www.freepik.com/free-vector/detective-investigating-murder-crime-scene_24640459.htm     | CRIME_SCENE_IMAGE                    |
+| Knife (Clue)      | https://www.freepik.com/free-icon/knife_1489972.htm                                            | CLUE_ICONS[0]                        |
+| Fingerprint       | https://www.freepik.com/free-icon/fingerprint_318-740317.htm                                   | CLUE_ICONS[1]                        |
+| Gold Watch        | https://www.freepik.com/free-icon/watch_2058877.htm                                            | CLUE_ICONS[2]                        |
+| Blood Stain       | https://www.freepik.com/free-icon/blood-stain_952007.htm                                       | CLUE_ICONS[3]                        |
+| Key (Clue)        | https://www.freepik.com/free-icon/key_2941735.htm                                              | CLUE_ICONS[4]                        |
+| Suspect: Police   | https://www.freepik.com/free-vector/policeman-character-design_1308-102774.htm                 | SUSPECT_IMAGES[0]                    |
+| Suspect: Chef     | https://www.freepik.com/free-vector/cartoon-female-chef-character-illustration_1308-133287.htm | SUSPECT_IMAGES[1]                    |
+| Suspect: Burglar  | https://www.freepik.com/free-vector/hand-drawn-cartoon-thief-character_1308-133295.htm         | SUSPECT_IMAGES[2]                    |
+| Suspect: Old Lady | https://www.freepik.com/free-vector/old-lady-character_1308-133288.htm                         | SUSPECT_IMAGES[3]                    |
+| Suspect: Nerdy Guy| https://www.freepik.com/free-vector/young-man-character_1308-144883.htm                        | SUSPECT_IMAGES[4]                    |
 
 ---
 
@@ -87,11 +111,11 @@ _**Theme:** Flat 2D, bold colors, clean lines, transparent backgrounds.
 
 ## 6. Additional Tips
 
-- Download the PNG (if available with transparent BG), or export vector with transparent BG.
-- For “hard” mode, prefer assets with clutter, detail, and multiple visual elements.
-- Clues can be cropped/placed in subtle spots in the crime scene backgrounds.
-- For integration, copy the direct PNG/JPG URL or serve locally.
-- Optionally, store in `/assets/` for guaranteed availability.
+- Download PNG (with transparency) or export vector (SVG).
+- For harder modes, prefer scenes with more clutter/objects and add subtle clue overlays.
+- Clues can be disguised as part of the room, requiring close observation.
+- Serve asset images from /assets for better caching/offline use if permitted.
+- Always check license details prior to shipping.
 
 ---
 
